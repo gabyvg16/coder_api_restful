@@ -1,0 +1,60 @@
+/* Universal */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    color: #051922;
+    font-size: 20px;
+    background-color: #be9ddf;
+}
+
+h1,
+h2 {
+    font-family: 'Dancing Script', cursive;
+    color: floralwhite;
+    text-align: center;
+    padding: 2rem
+}
+
+h2 {
+    color: darkslateblue;
+}
+
+fieldset {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 1rem;
+    width: 50%;
+}
+
+.formLabel {
+    padding-left: 1rem;
+}
+
+.productForm {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    align-items: center;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    padding: 0.7rem;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+.textForm {
+    border-radius: 10px;
+    border: none;
+    font-size: 1.5rem;
+}

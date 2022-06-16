@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Fuentes externas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Fredoka:wght@300&display=swap"
+        rel="stylesheet">
+
+    <!-- Estilo personal -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <title>Curso Backend</title>
+</head>
+
+<body>
+    <header>
+        <h1>Desafío 4: API Restful</h1>
+    </header>
+
+    <main>
+        <!-- Agregar producto -->
+        <form action="/api/productos" method="POST" class="productForm">
+            <fieldset>
+                <label for="title" class="formLabel">Nombre:</label>
+                <input type="text" name="title" class="textForm" required>
+            </fieldset>
+
+            <fieldset>
+                <label for="price" class="formLabel">Precio:</label>
+                <input type="text" name="price" class="textForm" required>
+            </fieldset>
+
+            <fieldset>
+                <label for="thumbnail" class="formLabel">Thumbnail:</label>
+                <input type="text" name="thumbnail" class="textForm" required>
+            </fieldset>
+
+            <button type="submit">Agregar producto</button>
+        </form>
+    </main>
+</body>
+
+</html>
