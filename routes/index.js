@@ -13,13 +13,15 @@ router.get('/', async (req, res) => {
 
 // Devuelve un producto según su id
 router.get('/:id', async (req, res) => {
-    const id = Number(req.params.id);
-    const producto = await productos.getById(id);
+    try {
+        const id = Number(req.params.id);
+        const producto = await productos.getById(id);
 
-    if (producto) {
+        if (!producto) throw 'producto no encontrado';
         res.status(200).json(producto);
-    } else {
-        res.status(200).json({ error: 'producto no encontrado'});
+
+    } catch (e) { 
+        res.status(500).json({ error: e });
     }
 })
 
@@ -32,32 +34,38 @@ router.post('/', async (req, res) => {
     res.status(201).json(id);
 })
 
+
 // Recibe y actualiza un producto segun su id
 router.put('/:id', async (req, res) => {
-    const { title, price, thumbnail } = req.body;
-    const id = Number(req.params.id);
-    const producto = await productos.getById(id);
+    try {
+        const { title, price, thumbnail } = req.body;
+        const id = Number(req.params.id);
+        const producto = await productos.getById(id);
 
-    if (producto) {
+        if (!producto) throw 'producto no encontrado';
+
         productoModif = new Producto( title, Number(price), thumbnail );
-
         await productos.updateById(id, productoModif);
         res.status(200).json('Producto modificado');
-    } else {
-        res.status(200).json({ error: 'producto no encontrado'});
+
+    } catch (e) {
+        res.status(500).json({ error: e });
     }
 })
 
 // Elimina un producto según su id
 router.delete('/:id', async (req, res) => {
-    const id = Number(req.params.id);
-    const producto = await productos.getById(id);
+    try {
+        const id = Number(req.params.id);
+        const producto = await productos.getById(id);
 
-    if (producto) {
+        if (!producto) throw 'producto no encontrado';
+        
         await productos.deleteById(id);
         res.status(200).json('Producto eliminado');
-    } else {
-        res.status(200).json({ error: 'producto no encontrado'});
+
+    } catch (e) {
+        res.status(500).json({ error: e });
     }
 })
 
